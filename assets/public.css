@@ -108,7 +108,7 @@ img {
 .application-header,
 application-header {
   font-weight: 300;
-  font-family: Gotham, Arial;
+  font-family: var(--font);
   display: block;
   background: #fff;
   color: #464343;
@@ -266,13 +266,13 @@ application-header .page-heading h2:empty:before {
 .application-header .page-heading h1,
 application-header .page-heading h1 {
   font-weight: 500;
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 .application-header .page-heading h2,
 application-header .page-heading h2 {
   font-weight: 300;
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 .application-header .page-heading .logo:not(:last-child),
@@ -299,7 +299,7 @@ application-header .page-heading .help-link {
   font-size: .875rem;
   line-height: 1.125rem;
   font-weight: 300;
-  font-family: Gotham, Arial;
+  font-family: var(--font);
   color: #00b7ed;
   position: absolute;
   top: -1.8em;
@@ -348,7 +348,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 h1>.help.help:after,
@@ -458,21 +458,22 @@ html {
 }
 
 :root {
-  --font: Gotham, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body,
 p {
-  font-size: 1rem;
+  font-size: 15px;
   font-weight: 300;
   font-family: var(--font);
+  font-style: normal;
+  line-height: 1.6;
 }
 
 body {
   color: #464343;
   background: #fff;
   min-height: 100%;
-  line-height: 1;
   word-wrap: break-word;
   word-break: break-word
 }
@@ -613,7 +614,7 @@ section {
 .small {
   line-height: 1.125rem;
   font-weight: 300;
-  font-family: Gotham, Arial;
+  font-family: var(--font);
   color: #716c6c
 }
 
@@ -627,7 +628,7 @@ display {
   font-size: 2.5rem;
   line-height: 2.625rem;
   font-weight: 500;
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 intro,
@@ -635,7 +636,7 @@ quote {
   display: block;
   font-size: 1.125rem;
   font-weight: 300;
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 intro {
@@ -661,7 +662,7 @@ quote.quaternary {
 
 .handwritten {
   font-weight: 400;
-  font-family: Angelina, Arial;
+  font-family: var(--font);
   font-size: 1.5rem;
   line-height: 2rem
 }
@@ -670,7 +671,7 @@ quote.quaternary {
 b,
 strong {
   font-weight: 500;
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 .line-height {
@@ -1434,7 +1435,7 @@ button:not(.no-style) {
 
 .as-button:not(.no-style):not([class^=icon-]),
 button:not(.no-style):not([class^=icon-]) {
-  font-family: "Fonecta Bold", Gotham, Arial
+  font-family: var(--font)
 }
 
 .as-button:not(.no-style).shrink,
@@ -1865,6 +1866,16 @@ label.checkbox input:disabled+.selector {
   -webkit-backdrop-filter: blur(8px);
 }
 
+@media (max-width: 767px) {
+  .public-page:not(.location-group) header.public-header {
+    padding-top: 0.5em;
+    padding-bottom: 0.25em;
+  }
+  header.public-header .portal-logo img {
+    max-height: 2.5em;
+  }
+}
+
 .public-page:not(.location-group) header.public-header>.content {
   border-bottom: none;
   padding-bottom: .5em
@@ -2157,7 +2168,7 @@ language-switcher .options.show {
 .language-switcher .options li.active,
 language-switcher .options li.active {
   font-weight: 700;
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 .public-page.location-group .language-switcher .options,
@@ -2738,7 +2749,7 @@ product-cluster .cluster-container .product-table list .table-holder td.product-
 .product-cluster .cluster-container .product-table list .selected,
 product-cluster .cluster-container .product-table list .selected {
   font-weight: 700;
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 @media only screen and (max-width:767px) {
@@ -3416,25 +3427,30 @@ review-filters .filters {
 
 .rating-number {
   overflow: hidden;
-  font-size: 2.5em;
-  position: relative
+  font-size: 2em;
+  position: relative;
+  line-height: 0;
+  margin-bottom: 1rem;
 }
 
 .rating-number svg {
   height: 2em;
-  width: 1.85em
+  width: 1.85em;
+  display: block;
+  margin: 0 auto;
 }
 
 .rating-number span {
   color: #fff;
   position: absolute;
-  top: 44%;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  margin-top: -.5em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
   z-index: 1;
-  font-family: Gotham, Arial, sans-serif;
+  font-family: var(--font);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .average-rating-number-container {
@@ -3456,19 +3472,31 @@ body.dark-mode .average-rating-number-container {
   display: block;
   position: absolute;
   font-weight: 500;
-  font-family: Gotham, Arial;
+  font-family: var(--font);
   font-size: 4rem;
   top: 50%;
   left: 0;
   width: 100%;
-  margin: -.55em 0 0 -.04em;
+  transform: translateY(-50%);
   letter-spacing: -.05em;
-  text-align: center
+  text-align: center;
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .average-rating-number-container {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  .average-rating-number-container > .rating {
+    font-size: 2rem;
+  }
 }
 
 /* Ensure all numeric ratings use Gotham */
 .rating {
-  font-family: Gotham, Arial, sans-serif;
+  font-family: var(--font);
+  line-height: 1;
 }
 
 .footer-bottom-col,
@@ -3704,7 +3732,7 @@ review-filters .ui-select {
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   width: 6.6em;
-  font-family: Gotham, Arial, sans-serif;
+  font-family: var(--font);
 }
 
 @media only screen and (min-width:1024px) {
@@ -3735,8 +3763,8 @@ table th.full {
 }
 
 .review {
-  margin: 1.25em 0;
-  padding: 1em;
+  margin: 1em 0;
+  padding: 0.75em;
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(200, 200, 200, 0.3);
@@ -3885,7 +3913,7 @@ table th.full {
 
 .review .meta-data .created-date {
   font-weight: 700;
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 .review .meta-data .more-meta-data table {
@@ -3899,6 +3927,12 @@ table th.full {
 
 .review .meta-data .more-meta-data table td:first-child {
   padding-right: .25em
+}
+
+@media (max-width: 600px) {
+  .review .meta-data .more-meta-data table {
+    margin-left: 1rem;
+  }
 }
 
 @media (max-width:600px) {
@@ -4146,8 +4180,8 @@ table th.full {
   -ms-flex-align: center;
   align-items: center;
   text-align: center;
-  margin-bottom: 1em;
-  padding: 1em;
+  margin-bottom: 0.5em;
+  padding: 0.75em;
   -webkit-box-flex: 0;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto
@@ -4161,7 +4195,7 @@ table th.full {
 }
 
 .review-summary .overall-rating .rating-stars {
-  margin: 2% 0
+  margin: 1rem 0;
 }
 
 .review-summary .overall-rating .rating-stars [class^=icon-star] {
@@ -4172,7 +4206,7 @@ table th.full {
 .review-summary .overall-rating .summary {
   font-size: .875rem;
   font-weight: 300;
-  font-family: Gotham, Arial;
+  font-family: var(--font);
   color: #716c6c;
   line-height: 1.3
 }
@@ -4205,7 +4239,7 @@ table th.full {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  padding: 1em
+  padding: 0.75em 1em
 }
 
 .public-login-page .page-container,
@@ -4225,7 +4259,7 @@ table th.full {
 .review-summary .ratings-per-division .heading {
   font-size: 1.125em;
   font-weight: 700;
-  font-family: Gotham, Arial;
+  font-family: var(--font);
   margin-bottom: 1em
 }
 
@@ -4287,7 +4321,7 @@ table th {
 .public-page.confirmation .verify-email,
 table.lined-table thead {
   font-weight: 500;
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 table td.fit,
@@ -4490,12 +4524,12 @@ table.lined-table checkbox.slider {
 
 .public-login-page .login-panel .heading span {
   font-weight: 700;
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 .public-login-page .login-panel>.content {
   font-weight: 300;
-  font-family: Gotham, Arial;
+  font-family: var(--font);
   padding: 1.5em 1em
 }
 
@@ -5794,8 +5828,8 @@ table.lined-table checkbox.slider {
 }
 
 .review-list .review {
-  margin: 2em 0;
-  padding: 1.5em;
+  margin: 1em 0;
+  padding: 0.75em;
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(200, 200, 200, 0.3);
@@ -5868,7 +5902,7 @@ table.lined-table checkbox.slider {
 }
 
 .signup-page * {
-  font-family: Metropolis
+  font-family: var(--font)
 }
 
 .signup-page .title {
@@ -6152,7 +6186,7 @@ html.widget-document body.kv-widget-body {
   font-size: 1em;
   overflow: hidden;
   font-weight: 300;
-  font-family: Gotham, Arial
+  font-family: var(--font)
 }
 
 html.widget-document body.kv-widget-body.theme-white {
@@ -6216,14 +6250,15 @@ html.widget-document body.kv-widget-body .default-widget-rating-number>.rating {
   display: block;
   position: absolute;
   font-weight: 500;
-  font-family: Gotham, Arial;
+  font-family: var(--font);
   font-size: 3.2em;
   top: 50%;
   left: 0;
   width: 100%;
-  margin: -.55em 0 0 -.04em;
+  transform: translateY(-50%);
   letter-spacing: -.05em;
-  text-align: center
+  text-align: center;
+  line-height: 1;
 }
 
 html.widget-document body.kv-widget-body .default-widget-rating-number:before {
@@ -6246,7 +6281,7 @@ html.widget-document body.kv-widget-body .portal-wrapper .powered-by {
 html.widget-document body.kv-widget-body .portal-wrapper .name {
   font-size: 1.8em;
   display: inline;
-  font-family: "Fonecta Book", Gotham, Arial
+  font-family: var(--font)
 }
 
 html.widget-document body.kv-widget-body .portal-wrapper .name span {
@@ -6256,8 +6291,7 @@ html.widget-document body.kv-widget-body .portal-wrapper .name span {
 
 html.widget-document body.kv-widget-body .portal-wrapper .name span:last-child {
   font-weight: 500;
-  font-family: Gotham, Arial;
-  font-family: "Fonecta Bold", Gotham, Arial
+  font-family: var(--font);
 }
 
 html.widget-document body.kv-widget-body .reviews {
@@ -6291,7 +6325,7 @@ html.widget-document body.kv-widget-body .reviews .review>* {
 
 html.widget-document body.kv-widget-body .reviews .review .oneliner {
   font-weight: 500;
-  font-family: Gotham, Arial;
+  font-family: var(--font);
   margin-bottom: .4em
 }
 
@@ -9598,10 +9632,19 @@ body.dark-mode .summary-flex {
   color: #111;
   cursor: pointer;
 }
+.faq summary::marker,
+.faq summary::-webkit-details-marker{display:none;}
 
 .faq summary .toggle {
+  font-family: FontAwesome;
   font-size: 1.3rem;
   line-height: 1;
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.2s;
+}
+.faq details[open] summary .toggle {
+  transform: rotate(180deg);
 }
 
 .faq .about-review-description {
@@ -9636,6 +9679,7 @@ body.dark-mode .summary-flex {
   border-radius: 0.75rem;
   overflow: hidden;
   margin: 1.5rem auto 1em;
+  position: relative;
 }
 
 .company-summary .map-square iframe {
@@ -9644,8 +9688,36 @@ body.dark-mode .summary-flex {
   border: 0;
 }
 
+.company-summary .map-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #333;
+}
+
+.company-summary .map-overlay.hidden {
+  display: none;
+}
+
 .company-summary .osm-link {
   display: none;
+}
+
+@media (max-width: 767px) {
+  .company-summary .map-square iframe {
+    pointer-events: none;
+  }
+  .company-summary .map-overlay {
+    display: flex;
+  }
 }
 
 @media (max-width: 600px) {
@@ -9694,7 +9766,7 @@ body.dark-mode .summary-flex {
 }
 
 .company-summary .contact-buttons button .fa {
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 .company-summary .opening-hours ul {
@@ -9750,7 +9822,7 @@ body.dark-mode .summary-flex {
 }
 
 .review > .review-content > .left {
-  margin-right: 2em;
+  margin-right: 2.5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9769,7 +9841,10 @@ body.dark-mode .summary-flex {
   flex: 0 0 auto;
 }
 
-.review > .review-content > .left > .overall-rating-stars { display: none; }
+.review > .review-content > .left > .overall-rating-stars {
+  display: none;
+  margin-top: 0.5rem;
+}
 
 @media only screen and (max-width:1023px) {
   .review > .review-content {
@@ -10070,7 +10145,7 @@ header.public-header .header-links {
     "num stars"
     "text text"
     "extra extra";
-  gap: 0.5rem 1rem;
+  gap: 0.5rem 2rem;
 }
 
 .review > .review-content > .left,
@@ -10085,6 +10160,7 @@ header.public-header .header-links {
 .review > .review-content > .right > .overall-rating-stars {
   grid-area: stars;
   align-self: center;
+  margin-top: 0.5rem;
 }
 
 .review > .review-content > .right > .rating-description {
@@ -10296,6 +10372,10 @@ header.public-header .header-links {
   padding: 0.9rem 0;
   font-size: 1.1rem;
 }
+.company-summary .contact-actions .secondary-buttons a .fa,
+.company-summary .contact-actions .website-btn .fa {
+  font-size: 1.5em;
+}
 
 @media (max-width: 767px) {
   .company-summary .contact-actions .website-btn {
@@ -10456,6 +10536,7 @@ header.public-header .header-rating {
   }
   header.public-header .portal-logo img {
     max-width: 7em;
+    max-height: 2.5em;
   }
 }
 
@@ -10510,11 +10591,24 @@ header.public-header .header-rating {
 .public-filter .js-filter-button {
   display: none;
 }
+.public-filter .js-clear-button,
+.public-review-filter .js-clear-button,
+review-filters .js-clear-button {
+  background: #ed8c00;
+  color: #fff;
+}
+.public-filter .js-clear-button:hover,
+.public-review-filter .js-clear-button:hover,
+review-filters .js-clear-button:hover {
+  background: #c97700;
+}
 
 .menu-actions {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .menu-actions button {
